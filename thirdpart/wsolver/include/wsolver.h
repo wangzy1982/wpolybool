@@ -154,6 +154,45 @@ private:
     int m_term_capacity;
 };
 
+struct WSPolynomialInfo {
+    WSPolynomial* Polynomial;
+    //int LeaderIndex;
+    //int LeaderDegree;
+    //double LeaderComplexity;
+    int Type;   //0: intermediate  1: basic  2: terminated
+};
+
+class WSPolynomialSystemElimination {
+public:
+    WSPolynomialSystemElimination(int polynomial_variable_count, int polynomial_capacity, int max_term_count,
+        int* leader_variables, int leader_variable_count);
+    ~WSPolynomialSystemElimination();
+    void AddPolynomial(WSPolynomial* polynomial);
+    int Execute(WSPolynomial**& algebra_polynomials, int& algebra_polynomial_count);
+    //int Execute(int start_polynomial_index, int recommended_leader_index);
+    int Execute();
+    int Execute(bool* sanctioned_leaders, int& start_polynomial_index);
+    int Execute(bool* sanctioned_leaders, int leader_index, int& start_polynomial_index);
+private:
+    void CalculateComplexity(WSPolynomial* polynomial, int variable_index, int& degree, int& item_count);
+    void CalculateComplexity(int start_polynomial_index, int polynomial_count, int variable_index,
+        int& polynomial_index, int& degree, double& complexity);
+    //void CalculateInfo(WSPolynomialInfo* polynomial_info, bool* sanctioned_leaders);
+private:
+    int m_max_term_count;
+    int m_polynomial_variable_count;
+    WSPolynomialInfo* m_polynomial_infos;
+    int m_polynomial_capacity;
+    int m_polynomial_count;
+    int* m_leader_variables;
+    int m_leader_variable_count;
+    WSPolynomial* m_temp_polynomial1;
+    WSPolynomial* m_temp_polynomial2;
+    WSPolynomial* m_temp_polynomial3;
+    int* m_temp_indices1;
+    int* m_temp_indices2;
+};
+
 enum class WSIterateResult {
     NoRoot,
     ClearRoot,
@@ -297,6 +336,11 @@ public:
     virtual WSReal GetEquationIterateEpsilon(WSEquationsCache* cache, int index) const = 0;
     virtual void BuildOriginalAlgebraEquations(const WSIntervalVector* variable_domain, 
         WSPolynomial**& polynomials, int& polynomial_count, int*& leader_variables, int& leader_variable_count, int& max_term_count) const = 0;
+    virtual void BuildAlgebraWhenEliminationFail(const WSIntervalVector* variable_domain,
+        WSPolynomial**& polynomials, int& polynomial_count) const {
+        polynomials = nullptr;
+        polynomial_count = 0;
+    };
 private:
     void RebuildIterateRuntime();
     void AddVariableIterateEquationIndex(int variable_index, int equation_index);
