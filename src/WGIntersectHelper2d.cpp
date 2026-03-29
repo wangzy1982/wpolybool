@@ -6169,15 +6169,15 @@ void WGIntersectHelper2d::LineBezierCurveIntersect(const WGVector2d& start_point
             if ((start_point - control_points[degree]).SqrLength() <= epsilon2) {
                 intersections00.push_back(PointCurveIntersection(1));
                 intersections11.push_back(PointCurveIntersection(0));
-                end_ts0[end_tc] = 1;
-                end_ts1[end_tc] = 0;
+                end_ts0[end_tc] = 0;
+                end_ts1[end_tc] = 1;
                 ++end_tc;
             }
             if ((end_point - control_points[0]).SqrLength() <= epsilon2) {
                 intersections01.push_back(PointCurveIntersection(0));
                 intersections10.push_back(PointCurveIntersection(1));
-                end_ts0[end_tc] = 0;
-                end_ts1[end_tc] = 1;
+                end_ts0[end_tc] = 1;
+                end_ts1[end_tc] = 0;
                 ++end_tc;
             }
             if ((end_point - control_points[degree]).SqrLength() <= epsilon2) {
@@ -6255,15 +6255,15 @@ void WGIntersectHelper2d::LineRationalBezierCurveIntersect(const WGVector2d& sta
             if ((start_point - control_points[degree]).SqrLength() <= epsilon2) {
                 intersections00.push_back(PointCurveIntersection(1));
                 intersections11.push_back(PointCurveIntersection(0));
-                end_ts0[end_tc] = 1;
-                end_ts1[end_tc] = 0;
+                end_ts0[end_tc] = 0;
+                end_ts1[end_tc] = 1;
                 ++end_tc;
             }
             if ((end_point - control_points[0]).SqrLength() <= epsilon2) {
                 intersections01.push_back(PointCurveIntersection(0));
                 intersections10.push_back(PointCurveIntersection(1));
-                end_ts0[end_tc] = 0;
-                end_ts1[end_tc] = 1;
+                end_ts0[end_tc] = 1;
+                end_ts1[end_tc] = 0;
                 ++end_tc;
             }
             if ((end_point - control_points[degree]).SqrLength() <= epsilon2) {
@@ -6343,15 +6343,15 @@ void WGIntersectHelper2d::ArcBezierCurveIntersect(const WGVector2d& center, doub
             if ((start_point - control_points[degree]).SqrLength() <= epsilon2) {
                 intersections00.push_back(PointCurveIntersection(1));
                 intersections11.push_back(PointCurveIntersection(0));
-                end_ts0[end_tc] = 1;
-                end_ts1[end_tc] = 0;
+                end_ts0[end_tc] = 0;
+                end_ts1[end_tc] = 1;
                 ++end_tc;
             }
             if ((end_point - control_points[0]).SqrLength() <= epsilon2) {
                 intersections01.push_back(PointCurveIntersection(0));
                 intersections10.push_back(PointCurveIntersection(1));
-                end_ts0[end_tc] = 0;
-                end_ts1[end_tc] = 1;
+                end_ts0[end_tc] = 1;
+                end_ts1[end_tc] = 0;
                 ++end_tc;
             }
             if ((end_point - control_points[degree]).SqrLength() <= epsilon2) {
@@ -6431,15 +6431,15 @@ void WGIntersectHelper2d::ArcRationalBezierCurveIntersect(const WGVector2d& cent
             if ((start_point - control_points[degree]).SqrLength() <= epsilon2) {
                 intersections00.push_back(PointCurveIntersection(1));
                 intersections11.push_back(PointCurveIntersection(0));
-                end_ts0[end_tc] = 1;
-                end_ts1[end_tc] = 0;
+                end_ts0[end_tc] = 0;
+                end_ts1[end_tc] = 1;
                 ++end_tc;
             }
             if ((end_point - control_points[0]).SqrLength() <= epsilon2) {
                 intersections01.push_back(PointCurveIntersection(0));
                 intersections10.push_back(PointCurveIntersection(1));
-                end_ts0[end_tc] = 0;
-                end_ts1[end_tc] = 1;
+                end_ts0[end_tc] = 1;
+                end_ts1[end_tc] = 0;
                 ++end_tc;
             }
             if ((end_point - control_points[degree]).SqrLength() <= epsilon2) {
@@ -6506,15 +6506,15 @@ void WGIntersectHelper2d::BezierCurveBezierCurveIntersect(int degree0, const WGV
             if ((control_points0[0] - control_points1[degree1]).SqrLength() <= epsilon2) {
                 intersections00.push_back(PointCurveIntersection(1));
                 intersections11.push_back(PointCurveIntersection(0));
-                end_ts0[end_tc] = 1;
-                end_ts1[end_tc] = 0;
+                end_ts0[end_tc] = 0;
+                end_ts1[end_tc] = 1;
                 ++end_tc;
             }
             if ((control_points0[degree0] - control_points1[0]).SqrLength() <= epsilon2) {
                 intersections01.push_back(PointCurveIntersection(0));
                 intersections10.push_back(PointCurveIntersection(1));
-                end_ts0[end_tc] = 0;
-                end_ts1[end_tc] = 1;
+                end_ts0[end_tc] = 1;
+                end_ts1[end_tc] = 0;
                 ++end_tc;
             }
             if ((control_points0[degree0] - control_points1[degree1]).SqrLength() <= epsilon2) {
@@ -6581,15 +6581,15 @@ void WGIntersectHelper2d::BezierCurveRationalBezierCurveIntersect(int degree0, c
             if ((control_points0[0] - control_points1[degree1]).SqrLength() <= epsilon2) {
                 intersections00.push_back(PointCurveIntersection(1));
                 intersections11.push_back(PointCurveIntersection(0));
-                end_ts0[end_tc] = 1;
-                end_ts1[end_tc] = 0;
+                end_ts0[end_tc] = 0;
+                end_ts1[end_tc] = 1;
                 ++end_tc;
             }
             if ((control_points0[degree0] - control_points1[0]).SqrLength() <= epsilon2) {
                 intersections01.push_back(PointCurveIntersection(0));
                 intersections10.push_back(PointCurveIntersection(1));
-                end_ts0[end_tc] = 0;
-                end_ts1[end_tc] = 1;
+                end_ts0[end_tc] = 1;
+                end_ts1[end_tc] = 0;
                 ++end_tc;
             }
             if ((control_points0[degree0] - control_points1[degree1]).SqrLength() <= epsilon2) {
@@ -6656,15 +6656,15 @@ void WGIntersectHelper2d::RationalBezierCurveRationalBezierCurveIntersect(int de
             if ((control_points0[0] - control_points1[degree1]).SqrLength() <= epsilon2) {
                 intersections00.push_back(PointCurveIntersection(1));
                 intersections11.push_back(PointCurveIntersection(0));
-                end_ts0[end_tc] = 1;
-                end_ts1[end_tc] = 0;
+                end_ts0[end_tc] = 0;
+                end_ts1[end_tc] = 1;
                 ++end_tc;
             }
             if ((control_points0[degree0] - control_points1[0]).SqrLength() <= epsilon2) {
                 intersections01.push_back(PointCurveIntersection(0));
                 intersections10.push_back(PointCurveIntersection(1));
-                end_ts0[end_tc] = 0;
-                end_ts1[end_tc] = 1;
+                end_ts0[end_tc] = 1;
+                end_ts1[end_tc] = 0;
                 ++end_tc;
             }
             if ((control_points0[degree0] - control_points1[degree1]).SqrLength() <= epsilon2) {
